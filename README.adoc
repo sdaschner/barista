@@ -4,3 +4,33 @@ An example application built with Jakarta EE and MicroProfile, running on Quarku
 Used as a backend for a coffee shop example application.
 
 The Docker image is available with: `docker pull sdaschner/barista:example-1`
+
+
+=== Build &amp; run locally
+
+You can build and run the application as follows:
+
+----
+mvn package
+docker build -f src/main/docker/Dockerfile.jvm -t barista .
+docker run --rm -p 8080:8080 barista
+----
+
+
+=== API endpoints
+
+The barista application does a stateless status update via JSON on HTTP.
+
+The API is used as follows:
+
+----
+# health check
+curl localhost:8080/health
+
+# process status
+curl localhost:8080/processes -i -XPOST \
+  -H 'Content-Type: application/json' \
+  -d '{"status":"PREPARING"}'
+----
+
+The following statuses can be provided as `status`: `PREPARING`, `FINISHED`, `COLLECTED`.
