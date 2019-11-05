@@ -1,0 +1,6 @@
+== Barista application ☕
+
+An example application built with Jakarta EE and MicroProfile, running on Quarkus.
+Used as a backend for a coffee shop example application.
+
+The Docker image is available with: `docker pull sdaschner/barista:example-1`
