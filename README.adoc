@@ -8,11 +8,11 @@ The Docker image is available with: `docker pull sdaschner/barista:example-1`
 
 === Build &amp; run locally
 
-You can build and run the application as follows:
+Maven, JDK 13, and Docker is required to build the application.
 
 ----
 mvn package
-docker build -f src/main/docker/Dockerfile.jvm -t barista .
+docker build -t barista .
 docker run --rm -p 8080:8080 barista
 ----
 
